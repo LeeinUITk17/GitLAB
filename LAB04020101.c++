@@ -81,16 +81,63 @@ void Circle::Intersection(Circle A, Circle B) {
 }
 int main() {
 	Circle As;
+    //Cau 1: khoi tao duong tron
+    /*
+    >>createCircle
+    input: Circle As
+    output: create new circle As
+    random information of circle As
+    */
 	As.createCircle(As);
+    cout<<"Cau 2: xuat thong tin duong tron\n";
+  /*
+  >>showCircle
+  input: Circle As
+  output: show information of circle As
+  */
 	As.showCircle(As);
+    cout<<"Cau 3: tinh chu vi\n";
+    /*
+    >>perimeterCircle
+    input: Cirlce As
+    output: float perimeter As
+    */
 	As.perimeterCircle(As);
+    cout<<"Cau 4: tinh dien tich\n";
+    /*
+    >>AreaCirlce
+    input: Circle As
+    output: float Area As
+    */
 	As.AreaCircle(As);
+    cout<<"Cau 5: phong to duong tron theo phan tram\n";
+    /*
+    >>Enlarge
+    input: Cirlce As, 40 (percent Enlarge) 
+    output: //As.radius= As.radius*(1+40*0.01);
+    show infor As after enlarge
+    */
 	As.Enlarge(As, 40 );
 	As.showCircle(As);
+    cout<<"Cau 6: thu nho duong tron theo phan tram\n";
+    /*
+    >>ZoomOut
+    input: Circle As, 40 (percent zoom out)
+    output: //As.radius= As.radius*(1-40*0.01);
+    show infor As after zoom out
+    */
 	As.ZoomOut(As, 40);
 	As.showCircle(As);
 	Circle Bs;
-	cout << "\n-()-\n";
+//	cout << "\n-()-\n";
+/*
+create circle Bs
+*/
+/*
+>>Intersection 
+input: Circle As, Circle Bs
+output: "giao nhau" or "khong giao nhau"
+*/
 	Bs.createCircle(Bs);
 	Bs.showCircle(Bs);
 	(As, Bs).Intersection(As, Bs);

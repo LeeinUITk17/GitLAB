@@ -102,12 +102,46 @@ void typeTriangle(int n) {
 }
 int main() {
 	coordinate a, b, c;
+	//cau 1: khoi tao tam giac
 	triangle As(a,b,c);
 	As.createTriangle(As);
+	/*
+	>>createTriangle
+	input: triangle As( cooridnate a, coordinate b, cooridnate c)
+	output: create triangle As 
+	random infor coordinate a,b,c
+	*/
+    cout<<"Cau 3: xet loai tam giac\n";
+	/*
+	>>setType
+	input: triangle As
+	output: number (1,2,3,4,5) //
+	>>typeTriangle
+	input: number //with one of thems (1,2,3,4,5)
+	output: Type Triangle corresponding number(input) 
+	*/
 	typeTriangle(As.setType(As));
+	cout<<"Cau 2: xuat thong tin tam giac\n";
+	/*
+	>>showInf
+	input: triangle As
+    output: show information of triangle As
+	*/
 	As.showInf(As);
+	cout<<"Cau 4: tinh chu vi\n";
+	/*
+	>>getPerimeter
+	input: triangle As
+	output: float perimeter As
+	*/
 	cout << As.getPerimeter(As) << "\n";
+	cout<<"Cau 5: tinh dien tich\n";
+	/*
+	>>getArea
+	input: triangle As
+	output: float Area As
+	*/
 	cout << As.getArea(As) << "\n";
-	system("pause");
+	//system("pause");
 	return 0;
 }
