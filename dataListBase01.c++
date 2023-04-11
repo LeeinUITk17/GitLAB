@@ -153,6 +153,13 @@ void PrimeNegative(list l) {
 	}
 	cout << "Danh sach co " << count << " so nguyen to o vi tri le.";
 }
+void NumAppear(list l) {
+	int* p = new int[length(l)];
+	for (int i = 0; i < length(l); i++) {
+		Node* node = getNode(l, i);
+		p[i] = node->data;
+	}
+}
 int main() {
 	list listss;
 	createList(listss);
@@ -166,6 +173,6 @@ int main() {
 	} while (x != 0);
 	if (listss.head==NULL) cout << "Danh sach rong.";
 	else PrimeNegative(listss);
+	NumAppear(listss);
 	return 0;
 }
-///
