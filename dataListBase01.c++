@@ -153,11 +153,23 @@ void PrimeNegative(list l) {
 	}
 	cout << "Danh sach co " << count << " so nguyen to o vi tri le.";
 }
+int Appear(int a[], int n,int num) {
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		if (a[i] == n) count++;
+	}
+	return count;
+}
 void NumAppear(list l) {
-	int* p = new int[length(l)];
-	for (int i = 0; i < length(l); i++) {
+	int n = length(l);
+	int* p = new int[n];
+	for (int i = 0; i < n; i++) {
 		Node* node = getNode(l, i);
 		p[i] = node->data;
+	}
+	cout << endl;
+	for (int i = 0; i < n; i++) {
+		cout << p[i] << ": " << Appear(p, n, p[i]) << endl;
 	}
 }
 int main() {
