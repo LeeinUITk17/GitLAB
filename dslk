@@ -1,0 +1,150 @@
+định nghĩa dslk>>
++ datatype struct của phân tử
++ liên kết
+>>List 
++ xác định head && tail
+struct LinkedList
+{
+	Node* head;
+	Node* tail;
+};
+void CreateList(LinkedList& l)
+{
+	l.head = NULL;
+	l.tail = NULL;
+}
+khởi tạo node
+struct Node
+{
+	int data;
+	Node* next;
+};
+Node* CreateNode(int init_data)
+{
+	Node* node = new Node;
+	node->data = init_data;
+	node->next = NULL;      // node vừa tạo chưa thêm vào danh sách nên chưa liên kết với phần tử nào cả nên phần liên kết gán bằng NULL
+	return node;
+}
+//typedef struct node NODE;
+khi thêm 1 phần tử vào list check head & tail
+3 pos có thể thêm
++ add vào head
+-check list rỗng hay không
+->add node vào head cũ
+->đổi vị trí head sang node mới
+void AddHead(LinkedList& l, Node* node)
+{
+	if (l.head == NULL)
+	{
+		l.head = node;
+		l.tail = node;
+	}
+	else
+	{
+		node->next = l.head;
+		l.head = node;
+	}
+}
++ add vào tail
+-	>add node vào tail cũ
+->đổi vị rí tail sang tail mới
+void AddTail(LinkedList& l, Node* node)
+{
+	if (l.head == NULL)
+	{
+		l.head = node;
+		l.tail = node;
+	}
+	else
+	{
+		l.tail->next = node;
+		l.tail = node;
+	}
+}
++ add vào vị trí bất kì
+>>Print list
+void PrintList(LinkedList l)
+{
+	if (l.head != NULL)
+	{
+		Node* node = l.head;
+		while (node != NULL)
+		{
+			cout << node->data << ' ';
+			node = node->next;
+		}
+	}
+}
+//////////////////
+void InsertAfterQ(LinkedList& l, Node* p, Node* q)
+{
+	if (q != NULL)
+	{
+		p->next = q->next;
+		q->next = p->next;
+		if (l.tail == q)
+			l.tail = p;
+	}
+	else
+		AddHead(l, p);
+}
++> them q
+-> q la tail
+-> q ko la tail
++> huy phan tu dau danh sach
+-> q null
+-> q !=null
+--> q == 1 node
+--->delete node & update pos head & tail
+--> q > 1 node 
+--->delete node & update pos head or tail
+int RemoveHead(LinkedList& l, int& x)
+{
+	if (l.head != NULL)
+	{
+		Node* node = l.head;
+		x = node->data;//optional
+		l.head = node->next;
+		delete node;
+		if (l.head == NULL)
+			l.tail = NULL;
+		return 1;
+	}
+	return 0;
+}
+int RemoveAfterQ(LinkedList& l, Node* q, int& x)
+{
+	if (q != NULL)
+	{
+		Node* p = q->next;
+		if (p != NULL)
+		{
+			if (l.tail == p)
+				l.tail = q;
+			q->next = p->next;
+			x = p->data;
+			delete p;
+			return 1;
+		}
+		return 0;
+	}
+	return 0;
+}
++> remover after q
+-> q ==null
+-> q!=null
+-->q == tail
+-->q != tail
+---> p next ==tail ? ==tail : !=tail;
+void DestroyList(LinkedList& l)
+{
+	int x;
+	Node* node = l.head;
+	while (node != NULL)
+	{
+		RemoveHead(l, x);
+		node = l.head;
+	}
+	l.tail = NULL;
+}
