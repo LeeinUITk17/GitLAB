@@ -140,6 +140,85 @@ bool checkPrime(int n) {
 	}
 	return true;
 }
+int CountAppear(int a[], int n,int num) {
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		if (a[i] == num) count++;
+	}
+	return count;
+}
+int CheckAppear(int a[], int n, int num) {
+	for (int i = 0; i < n; i++) {
+		if (a[i] == num) return 1;
+	}
+	return 0;
+}
+void NumAppear(list l) {
+	int n = length(l);
+	int* p = new int[n];
+	for (int i = 0; i < n; i++) {
+		Node* node = getNode(l, i);
+		p[i] = node->data;
+	}
+	cout << endl;
+	int* arr = new int[n];
+	int narr = 0;
+	for (int i = 0; i < n; i++) {
+		if (CheckAppear(arr, narr, p[i]) == 0) {
+			arr[narr] = p[i];
+			narr++;
+		}
+	}
+	cout << "Danh sach vua nhap la: "; printList(l);
+	cout << endl;
+	cout << "So lan xuat hien cua tung phan tu trong danh sach la:\n";
+	for (int i = 0; i < narr; i++) {
+		cout << arr[i] << ": " << CountAppear(p, n, arr[i]) << endl;
+	}
+}
+void OddEvenCheck(int a[], int n, int odd[], int &nodd, int even[], int &neven) {
+	for (int i = 0; i < n; i++) {
+		if (a[i] % 2 == 0) {
+			odd[nodd] = a[i];
+			nodd++;
+		}
+		else {
+			even[neven] = a[i];
+			neven++;
+		}
+	}
+}
+void print(int a[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << " ";
+	}
+}
+void OddEven(list l) {
+	int n = length(l);
+	int* p = new int[n];
+	for (int i = 0; i < n; i++) {
+		Node* node = getNode(l, i);
+		p[i] = node->data;
+	}
+	cout << endl;
+	int* arr = new int[n];
+	int narr = 0;
+	for (int i = 0; i < n; i++) {
+		if (CheckAppear(arr, narr, p[i]) == 0) {
+			arr[narr] = p[i];
+			narr++;
+		}
+	}
+	cout << "Danh sach vua nhap la: "; printList(l);
+	cout << endl;
+	int* odd = new int[n];
+	int* even = new int[n];
+	int nodd = 0, neven = 0;
+	OddEvenCheck(arr, narr, odd, nodd, even, neven);
+	cout << "Cac so chan trong danh sach la: "; print(odd, nodd);
+	cout << endl;
+	cout << "Cac so le trong danh sach la: "; print(even, neven);
+}
 void PrimeNegative(list l) {
 	cout << "Danh sach vua nhap la: "; printList(l);
 	cout << endl;
@@ -153,38 +232,20 @@ void PrimeNegative(list l) {
 	}
 	cout << "Danh sach co " << count << " so nguyen to o vi tri le.";
 }
-int Appear(int a[], int n,int num) {
-	int count = 0;
-	for (int i = 0; i < n; i++) {
-		if (a[i] == n) count++;
-	}
-	return count;
-}
-void NumAppear(list l) {
-	int n = length(l);
-	int* p = new int[n];
-	for (int i = 0; i < n; i++) {
-		Node* node = getNode(l, i);
-		p[i] = node->data;
-	}
-	cout << endl;
-	for (int i = 0; i < n; i++) {
-		cout << p[i] << ": " << Appear(p, n, p[i]) << endl;
-	}
-}
 int main() {
 	list listss;
 	createList(listss);
 	Node* node;
 	int x;
-	do {
+	do {  
 		cin >> x;
 		if (x == 0) break;
 			node = createNode(x);
 			Addtail(listss, node);
 	} while (x != 0);
-	if (listss.head==NULL) cout << "Danh sach rong.";
-	else PrimeNegative(listss);
-	NumAppear(listss);
+	if (listss.head == NULL) cout << "Danh sach rong.";
+	//else PrimeNegative(listss);
+	//else NumAppear(listss);
+	else OddEven(listss);
 	return 0;
 }
