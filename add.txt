@@ -1,0 +1,6 @@
+https://khmt.uit.edu.vn/wecode/it003/assignments
+//link wecode 
+https://topdev.vn/blog/ngan-xep-va-hang-doi-trong-c/
+//link stack queue
+https://topdev.vn/blog/nap-chong-toan-tu-trong-c/
+//link operator
