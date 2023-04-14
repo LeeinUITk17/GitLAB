@@ -1,0 +1,49 @@
+Queue// queue is list(first in first out)
++> EnQueue();
++> DeQueue();
+IsEmpty: kiểm tra hàng đợi có rỗng hay không
+EnQueue: thêm một phần tử vào cuối hàng đợi
+DeQueue: lấy phần tử đầu tiên ra khỏi hàng đợi (nếu hàng đợi không rỗng)
+Front: trả về giá trị của phần tử ở đầu hàng đợi (nếu hàng đợi không rỗng)
+attibute :: + rear is pos of last value
+            + Front is pos of first value
+//Arr Queue
+struct Queue{
+	int a[size];
+	int front;
+	int rear;
+}           
+void createQueue(Queue & q){
+	q.rear=-1;
+	q.front=-1;
+}
+int DeQueue(Queue &q, int &x){
+	if(q.front!=-1){
+	x=q.a[q.front];
+	q.front++;
+	if(q.front>q.rear){
+           q.front=-1;
+           q.rear=-1;
+	}
+	return 1;
+}
+else return 0;
+   }
+int EnQueue(Queue &q,int x){
+if(q.rear-q.front+1==max) return 0//queue bi day thuc su
+	if(q.rear==max-1)//queue day ao
+	else 
+	{
+	f=q.front;
+	r=q.rear;
+	for(int i=0;i<=r;i++){
+	q.a[i-f]=q.a[i];
+	q.front=0;
+	q.rear=r-f;
+	}
+	q.rear++;
+	q.a[q.rear]=x;
+	return 1;
+	}
+}
+
