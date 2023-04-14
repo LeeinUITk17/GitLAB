@@ -58,15 +58,31 @@ void CreateList(List& l) {
 	l.pHead = NULL;
 	l.pTail = NULL;
 }
-void NhapList(List& l,Node*node) {
+Node* createNode(int initData) {
+	Node* node = new Node;
+	node->info = initData;
+	node->pNext = NULL;
+	return node;
+}
+void Addtail(List &l, Node* node) {
 	if (l.pHead == NULL) {
 		l.pHead = node;
 		l.pTail = node;
 	}
 	else {
-		node->pNext = l.pHead;
-		l.pHead = node;
+		l.pTail->pNext = node;
+		l.pTail = node;
 	}
+}
+void NhapList(List& l) {
+	Node* node;
+	int x;
+	do {
+		cin >> x;
+		if (x == 0) break;
+		node = createNode(x);
+		Addtail(l, node);
+	} while (x != 0);
 }
 int DemSoPhanTu(List l) {
 	int count = 0;
@@ -77,8 +93,55 @@ int DemSoPhanTu(List l) {
 	}
 	return count;
 }
+Node* getNode(List l, int index) {
+	Node* node = l.pHead;
+	int i = 0;
+	while (node != NULL && i != index) {
+		i++;
+		node = node->pNext;
+	}
+	if (i == index && node != NULL) {
+		return node;
+	}
+	return NULL;
+}
+int checkAppear(int a[], int n, int num) {
+	for (int i = 0; i < n; i++) {
+		if (a[i] == num) return 1;
+	}
+	return 0;
+}
+void OddEvenCheck(int a[], int n, List& l1, List& l2) {
+	for (int i = 0; i < n; i++) {
+		//l1 odd list
+		//l2 even list
+		Node* node;
+		if (a[i] % 2 == 0) {
+			node = createNode(a[i]);
+			Addtail(l1, node);
+		}
+		else {
+			node = createNode(a[i]);
+			Addtail(l2, node);
+		}
+	}
+}
 void Split(List l, List& l1, List& l2) {
-
+	int n = DemSoPhanTu(l);
+	int* p = new int[n];
+	for (int i = 0; i < n; i++) {
+		Node* node = getNode(l, i);
+		p[i] = node->info;
+	}
+	int* arr = new int[n];
+	int narr = 0;
+	for (int i = 0; i < n; i++) {
+		if (checkAppear(arr, narr, p[i]) == 0) {
+			arr[narr] = p[i];
+			narr++;
+		}
+	}
+	OddEvenCheck(arr, narr, l1, l2);
 }
 void XuatList(List l) {
 	if (l.pHead != NULL) {
