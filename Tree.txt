@@ -1,0 +1,69 @@
+Tree 
+kiểu dữ liệu tuyến tính là dslk , array
+<có tối đã trước và sau chỉ có 1 phần tử duy nhất tiếp nối nhau>
++ bậc của một nút là số cây con của nút đó
+<Node rank = number of branch of this Node>
++ bậc của cây là bậc lớn nhất trong cây
+<max Node rank is rank of tree>
+root (node gốc) node main;
+leaf (node lá) node rank =0;
+branch (node nhánh) node rank!=0;
+>>>Mức của một nút (level):
+Mức (gốc (T) ) = 0.
+Gọi T1, T2, T3, ... , Tn là các cây con của T0 :
+Mức (T1) = Mức (T2) = . . . = Mức (Tn) = Mức (T0) + 1
+>>>Độ sâu của một nút (dept): Độ dài đường đi giữa
+node gốc và node đó. Node ở mức i thì có độ dài i
+>> heght = dept (root to leaf)
++> Binary Tree
+<max rank of node == 2>
+ Số nút nằm ở mức i <= 2i. 
+ Số nút lá <= 2h-1, với h là chiều
+cao của cây. 
+• Chiều cao của cây h >= log2(N)
+• N = số nút trong cây
+• Số nút trong cây <= 2h-1.
+void NLR(Tree root)
+{
+    if (root)
+    {
+        // Xử lý nút gốc (root)
+        NLR(root->left); //gọi đệ quy cây con 
+        NLR(root->right);
+    }
+}
+
+void Numb(tree root){
+int count =0;
+	if(root !=NULL){
+count=1+Numb(root->left);
+	}
+}
+void leafNumb(tree root){
+	int count =0;
+if(root!=NULL){
+	if(root->left==NULL && root->right== NULL) count+=1;
+	leafNumb(root->left);
+	leafNumb(root->right);
+    }
+}
+void height(tree root){
+	int maxL=0,maxR=0,max;
+	if(root!=NULL){
+	height(root->left);
+        if(root->left==NULL && root->right==NUll){
+
+        }
+	}
+}
+>>>>> Binary search tree
+• Là cây nhị phân
+• Giá trị của một node luôn lớn
+hơn giá trị của các node
+nhánh trái và nhỏ hơn giá trị
+các node nhánh phải
+Nút có giá trị nhỏ nhất nằm ở
+nút trái nhất của cây 
+Nút có giá trị lớn nhất nằm ở
+nút phải nhất của cây
+Nhờ cấu trúc của cây Định hướng được khi tìm kiếm
