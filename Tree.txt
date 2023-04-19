@@ -67,3 +67,17 @@ nút trái nhất của cây
 Nút có giá trị lớn nhất nằm ở
 nút phải nhất của cây
 Nhờ cấu trúc của cây Định hướng được khi tìm kiếm
+int InsertNode (Tree & t, int x)
+{
+if(t!=NULL)
+{ if(x==t->key) return 0; //Có giá trị trùng
+else
+{ if(x<t->key) InsertNode(t->pLeft, x);
+else InsertNode(t->pRight, x);
+} }
+else
+{ t= new TNode;
+if(t==NULL) return -1; //Thiếu bộ nhớ
+t->key=x; t->pLeft=t->pRight=NULL;
+return 1; //Thêm thành công
+} }
