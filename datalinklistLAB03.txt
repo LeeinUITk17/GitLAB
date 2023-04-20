@@ -1,0 +1,184 @@
+#include<iostream>
+#include<cstring>
+#include<string.h>
+using namespace std;
+void swap(char& a, char& b) {
+	char temp;
+	temp = a;
+	a = b;
+	b = temp;
+
+}
+void SelectionSort(char a[], int n) {
+	int min;
+	for (int i = 0; i < n; i++) {
+		min = i;
+		for (int j = i + 1; j < n; j++) {
+			if (a[j] < a[min]) min = j;
+		}
+		swap(a[i], a[min]);
+	}
+}
+void inputArr(char a[], int n) {
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+}
+void showArr(char a[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << a[i];
+	}
+}
+int main() {
+	int n;
+	cin >> n;
+	char* arr = new char[n];
+	inputArr(arr, n);
+	SelectionSort(arr, n);
+	showArr(arr, n);
+	return 0;
+}
+////////////////////
+/*###Begin banned keyword - each of the following line if appear in code will raise error. regex supported
+define
+include
+class
+template
+###End banned keyword*/
+
+#include <iostream>
+using namespace std;
+
+//###INSERT CODE HERE -
+void swap(int& a, int& b) {
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+}
+int partition(int arr[], int start, int end) {
+	int pivot = arr[start];
+	int count = 0;
+	for (int i = start + 1; i <= end; i++) {
+		if (arr[i] <= pivot) count++;
+	}
+	int pivotIndex = start + count;
+	swap(arr[pivotIndex], arr[start]);
+	int i = start;
+	int j = end;
+	while (i<pivotIndex && j>pivotIndex) {
+		while (arr[i] <= pivot) i++;
+		while (arr[j] > pivot) j--;
+		if (i<pivotIndex && j>pivotIndex) swap(arr[i++], arr[j--]);
+	}
+	return pivotIndex;
+}
+void QuickSort(int a[], int start, int end) {
+	if (start >= end) return;
+	int p = partition(a, start, end);
+	QuickSort(a, start, p - 1);
+	QuickSort(a, p + 1, end);
+}
+void inputArr(int a[], int n) {
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+}
+void showArr(int a[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << "\n";
+	}
+}
+int main() {
+	int n;
+	cin >> n;
+	int* arr = new int[n];
+	inputArr(arr, n);
+	QuickSort(arr, 0, n - 1);
+	showArr(arr, n);
+	return 0;
+}
+/////////////////////////////////
+/*###Begin banned keyword - each of the following line if appear in code will raise error. regex supported
+define
+include
+class
+template
+###End banned keyword*/
+
+#include <iostream>
+using namespace std;
+
+//###INSERT CODE HERE -
+void merge(int array[], int const left, int const mid,
+    int const right)
+{
+    auto const subArrayOne = mid - left + 1;
+    auto const subArrayTwo = right - mid;
+    auto* leftArray = new int[subArrayOne],
+        * rightArray = new int[subArrayTwo];
+    for (auto i = 0; i < subArrayOne; i++)
+        leftArray[i] = array[left + i];
+    for (auto j = 0; j < subArrayTwo; j++)
+        rightArray[j] = array[mid + 1 + j];
+    auto indexOfSubArrayOne = 0,  indexOfSubArrayTwo = 0;
+    int indexOfMergedArray= left;
+    while (indexOfSubArrayOne < subArrayOne
+        && indexOfSubArrayTwo < subArrayTwo) {
+        if (leftArray[indexOfSubArrayOne]
+            <= rightArray[indexOfSubArrayTwo]) {
+            array[indexOfMergedArray]
+                = leftArray[indexOfSubArrayOne];
+            indexOfSubArrayOne++;
+        }
+        else {
+            array[indexOfMergedArray]
+                = rightArray[indexOfSubArrayTwo];
+            indexOfSubArrayTwo++;
+        }
+        indexOfMergedArray++;
+    }
+    while (indexOfSubArrayOne < subArrayOne) {
+        array[indexOfMergedArray]
+            = leftArray[indexOfSubArrayOne];
+        indexOfSubArrayOne++;
+        indexOfMergedArray++;
+    }
+    while (indexOfSubArrayTwo < subArrayTwo) {
+        array[indexOfMergedArray]
+            = rightArray[indexOfSubArrayTwo];
+        indexOfSubArrayTwo++;
+        indexOfMergedArray++;
+    }
+    delete[] leftArray;
+    delete[] rightArray;
+}
+void mergeSort(int array[], int const begin, int const end)
+{
+    if (begin >= end) return;
+    auto mid = begin + (end - begin) / 2;
+    mergeSort(array, begin, mid);
+    mergeSort(array, mid + 1, end);
+    merge(array, begin, mid, end);
+}
+void inputArr(int a[], int n) {
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+}
+void showArr(int a[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << "\n";
+	}
+}
+int main() {
+	int n;
+	cin >> n;
+	int* arr = new int[n];
+	inputArr(arr, n);
+	//QuickSort(arr, 0, n - 1);
+	mergeSort(arr, 0, n - 1);
+	showArr(arr, n);
+	return 0;
+}
+//////////////////
