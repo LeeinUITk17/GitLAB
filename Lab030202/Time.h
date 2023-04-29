@@ -15,8 +15,8 @@ public:
 	Time operator-(Time const& A);
 	Time operator+(int const& ss);
 	Time operator-(int const& ss);
-	Time operator++();
-	Time operator--();
+	Time operator++(int);
+	Time operator--(int);
 	void setaddition(Time& A);
 	void setsubtraction(Time& A);
 };

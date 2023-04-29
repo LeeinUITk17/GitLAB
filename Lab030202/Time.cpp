@@ -16,30 +16,34 @@ ostream& operator<<(ostream& on, Time& A) {
 	return on;
 }
 void Time::setaddition(Time& A) {
-	if (A.second > 59) {
-		A.second -= 60;
-		A.minute++;
-	}
-	if (A.minute > 59) {
-		A.minute -= 60;
-		A.hour++;
-	}
-	if (A.hour > 23) {
-		A.hour -= 23;
-	}
+	do {
+		if (A.second > 59) {
+			A.second -= 60;
+			A.minute++;
+		}
+		if (A.minute > 59) {
+			A.minute -= 60;
+			A.hour++;
+		}
+		if (A.hour > 23) {
+			A.hour -= 24;
+		}
+	} while (A.second > 59 || A.minute > 59 || A.hour > 23);
 }
 void Time::setsubtraction(Time& A) {
-	if (A.second < 0) {
-		A.second += 60;
-		A.minute--;
-	}
-	if (A.minute < 0) {
-		A.minute += 60;
-		A.hour--;
-	}
-	if (A.hour < 0) {
-		A.hour += 24;
-	}
+	do {
+		if (A.second < 0) {
+			A.second += 60;
+			A.minute--;
+		}
+		if (A.minute < 0) {
+			A.minute += 60;
+			A.hour--;
+		}
+		if (A.hour < 0) {
+			A.hour += 24;
+		}
+	} while (A.second < 0 || A.minute < 0 || A.hour < 0);
 }
 Time Time::operator+(Time const& A) {
 	Time res;
@@ -73,16 +77,16 @@ Time Time::operator-(int const&ss) {
 	res.setsubtraction(res);
 	return res;
 }
-Time Time::operator++() {
-	Time res;
+Time Time::operator++(int) {
+	Time res = *this;
 	res.second = second + 1;
 	res.minute = minute;
 	res.hour = hour;
 	res.setaddition(res);
 	return res;
 }
-Time Time::operator--() {
-	Time res;
+Time Time::operator--(int) {
+	Time res = *this;
 	res.second = second - 1;
 	res.minute = minute;
 	res.hour = hour;
