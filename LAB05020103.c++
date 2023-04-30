@@ -75,7 +75,7 @@ void company::find10sBill(company &A) {
 	int min;
 	for (int i = 0; i < resources; i++) {
 		min = i;
-		for (int j = 1 + 1; j < resources; j++) {
+		for (int j = i + 1; j < resources; j++) {
 			if (member[j].Salary < member[min].Salary) min = j;
 		}
 		swapPos(member[i], member[min]);

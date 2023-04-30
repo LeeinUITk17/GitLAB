@@ -39,30 +39,37 @@ void Addtail(list&l, Node* node) {
 	}
 }
 void InsertAfterQ(list& l, Node* p, Node* q) {
-	if (q != NULL) {
+if (q != NULL)
+	{
 		p->next = q->next;
-		q->next = p->next;
-		if (l.tail == q) l.tail = p;
+		q->next = p;
+		if (l.tail == q)
+			l.tail = p;
 	}
+	else
+		Addhead(l, p);
 }
 int Removehead(list& l, int& x) {
-	if (l.head != NULL) {
+if (l.head != NULL)
+	{
 		Node* node = l.head;
-		x = node->data;//luu gia tri cua head truoc khi delete
+		x = node->data;
 		l.head = node->next;
 		delete node;
-		if (l.head == NULL) {
+		if (l.head == NULL)
 			l.tail = NULL;
-		}
 		return 1;
 	}
 	return 0;
 }
 int RemoveAfterQ(list& l, Node* q, int& x) {
-	if (q != NULL) {
+	if (q != NULL)
+	{
 		Node* p = q->next;
-		if (p != NULL) {
-			if (l.tail == p) l.tail = q;
+		if (p != NULL)
+		{
+			if (l.tail == p)
+				l.tail = q;
 			q->next = p->next;
 			x = p->data;
 			delete p;
