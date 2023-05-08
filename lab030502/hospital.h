@@ -4,7 +4,8 @@ class doctor {
 private:
 	long long idDoctor;
 	string fullname;
-	patient* arrCustom = new patient[customer];
+	/*patient* arrCustom = new patient[customer];*/
+	long long idPatient;
 	int nCustomer;
 	long long Fees;
 	long long Salary;
@@ -12,7 +13,9 @@ private:
 public:
 	void randomInf(doctor& A, int seed);
 	void setSalary(doctor& A);
-	friend class patient;
+	friend void hospital::SetupHospital(hospital& A);
+	long long getID(doctor A);
+	void showOff(doctor A);
 };
 class patient {
 private:
@@ -25,15 +28,17 @@ private:
 public:
 	void randomInf(patient& A, int seed);
 	void setBills(patient& A);
-	friend class doctor;
+	friend void hospital::SetupHospital(hospital& A);
+	long long getID(patient A);
+	void showOff(patient A);
 };
 class hospital {
 private:
 	doctor* ArrDr = new doctor[member];
 	patient* ArrPt = new patient[customer];
 public:
-	void SetupHospital(doctor[], patient[]);
+	void SetupHospital(hospital &A);
 	void highestBalance(doctor[]);
-	void searchID(doctor[], int, long long);
-	void searchID(patient[], int, long long);
+	void searchID(hospital A,long long id);
+	void showMode(hospital A);
 };
