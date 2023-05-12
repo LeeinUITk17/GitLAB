@@ -15,8 +15,9 @@ public:
 	void setSalary(doctor& A);
 	/*friend void hospital::SetupHospital(hospital& A);*/
 	long long getID(doctor A);
+	long long drIDpt(doctor A);
 	void showOff(doctor A);
-	void assignID(doctor& A,int index);
+	void assignID(doctor& A, int index);
 };
 class patient {
 private:
@@ -31,8 +32,10 @@ public:
 	void setBills(patient& A);
 	/*friend void hospital::SetupHospital(hospital& A);*/
 	long long getID(patient A);
+	long long ptIDdr(patient A);
 	void showOff(patient A);
-	void assignID(patient& A,int index);
+	void assignID(patient& A, int index);
+	long long getBills(patient A);
 };
 class hospital {
 private:
@@ -40,7 +43,7 @@ private:
 	patient* ArrPt = new patient[customer];
 public:
 	void SetupHospital(hospital& A);
-	void highestBalance(doctor[]);
-	void searchID(hospital A, long long id);
+	void highestFees(hospital A);
+	void searchID(hospital A);
 	void showMode(hospital A);
 };

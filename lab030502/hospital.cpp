@@ -22,7 +22,10 @@ void doctor::randomInf(doctor& A, int seed) {
 long long doctor::getID(doctor A) {
 	return A.idDoctor;
 }
-void doctor::assignID(doctor& A,int index) {
+long long doctor::drIDpt(doctor A) {
+	return A.idPatient;
+}
+void doctor::assignID(doctor& A, int index) {
 	A.idPatient = arrpt[index];
 }
 void doctor::showOff(doctor A) {
@@ -54,6 +57,9 @@ void patient::randomInf(patient& A, int seed) {
 long long patient::getID(patient A) {
 	return A.idPatient;
 }
+long long patient::ptIDdr(patient A) {
+	return A.idDoctor;
+}
 void patient::assignID(patient& A, int index) {
 	A.idDoctor = arrdr[index];
 }
@@ -61,7 +67,7 @@ void patient::showOff(patient A) {
 	cout << "\n--Patient--\n";
 	cout << "ID: " << A.idPatient << "\n";
 	cout << "Fullname: " << A.fullname << "\n";
-	cout << "About times: " << A.AboutTime << "\n";
+	cout << "About times<\day> : " << A.AboutTime << "\n";
 	cout << "medicin fees: " << A.medicinFee << "\n";
 	cout << "Bill: " << A.bills << "\n";
 	cout << "ID doctor: " << A.idDoctor << "\n";
@@ -87,10 +93,9 @@ void hospital::SetupHospital(hospital& A) {
 		npt++;
 	}
 	fix(arrdr, member, arrpt, customer);
-	for(int i=0;i<member;i++) ArrDr[i].assignID(ArrDr[i], i);
+	for (int i = 0; i < member; i++) ArrDr[i].assignID(ArrDr[i], i);
 	for (int i = 0; i < customer; i++) ArrPt[i].assignID(ArrPt[i], i);;
 }
-void highestBalance(doctor[]);
 void hospital::showMode(hospital A) {
 	cout << "\n---show Mode---\n";
 	cout << "enter 1 show doctor Inf..\n";
@@ -125,5 +130,66 @@ void hospital::showMode(hospital A) {
 		break;
 	}
 	default: break;
+	}
+}
+void hospital::searchID(hospital A) {
+	long long id;
+	int mode;
+	cout << "\n---search mode---\n";
+	cout << "enter 1 to search doctor and his patient.. \n";
+	cout << "enter 2 to search patient and his doctor.. \n";
+	cin >> mode;
+	switch (mode) {
+	case 1:
+	{
+		cin >> id;
+		int i,j;
+		for ( i = 0; i < member; i++) {
+			if (ArrDr[i].getID(ArrDr[i]) == id) {
+				ArrDr[i].showOff(ArrDr[i]);
+				break;
+			}
+		}
+		for (j = 0; j < customer; j++) {
+			if (ArrPt[j].getID(ArrPt[j]) == ArrDr[i].drIDpt(ArrDr[i])) {
+				ArrPt[j].showOff(ArrPt[j]);
+				break;
+			}
+		}
+		break;
+	}
+	case 2:
+	{
+		cin >> id;
+		int i, j;
+		for (i = 0; i < customer; i++) {
+			if (ArrPt[i].getID(ArrPt[i]) == id) {
+				ArrPt[i].showOff(ArrPt[i]);
+				break;
+			}
+		}
+		for (j = 0; j < member; j++) {
+			if (ArrDr[j].getID(ArrDr[j]) == ArrPt[i].ptIDdr(ArrPt[i])) {
+				ArrDr[j].showOff(ArrDr[j]);
+			}
+		}
+		break;
+	}
+	default: break;
+	}
+}
+long long patient::getBills(patient A) {
+	return A.bills;
+}
+void hospital::highestFees(hospital A) {
+	int max = 0;
+	for (int i = 0; i < customer; i++) {
+		if (ArrPt[i].getBills(ArrPt[i]) > ArrPt[max].getBills(ArrPt[max])) max = i;
+	}
+	for (int i = 0; i < member; i++) {
+		if (ArrDr[i].getID(ArrDr[i]) == ArrPt[max].ptIDdr(ArrPt[max])) {
+			ArrDr[i].showOff(ArrDr[i]);
+			cout << "\nBill of his patient is " << ArrPt[max].getBills(ArrPt[max]) << " VND \n";
+		}
 	}
 }
