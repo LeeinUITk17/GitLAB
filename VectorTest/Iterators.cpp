@@ -1,25 +1,23 @@
 #include"source.h"
-void showVector(vector<int> A) {
-	for (int i = 0; i < A.size(); i++) {
-		cout << A[i] << " ";
-	}
-}
 void iterators() {
-	vector<int>Vector;
-	for (int i=0; i < base; i++) {
-		Vector.push_back(i);
-	}
-	showVector(Vector);
-	for (auto i = Vector.begin(); i != Vector.end(); ++i) {
-		cout  << *i << " ";
-	}
-	for (auto i = Vector.cbegin(); i != Vector.cend(); ++i) {
-		cout << *i << " ";
-	}
-	for (auto ir = Vector.rbegin(); ir != Vector.rend(); ++ir) {
-		cout << *ir << " ";
-	}
-	for (auto ir = Vector.crbegin(); ir != Vector.crend(); ++ir) {
-		cout << *ir << " ";
-	}
+    vector<int> g1;
+
+    for (int i = 1; i <= 5; i++)
+        g1.push_back(i);
+
+    cout << "Output of begin and end: ";
+    for (auto i = g1.begin(); i != g1.end(); ++i)
+        cout << *i << " ";
+
+    cout << "\nOutput of cbegin and cend: ";
+    for (auto i = g1.cbegin(); i != g1.cend(); ++i)
+        cout << *i << " ";
+
+    cout << "\nOutput of rbegin and rend: ";
+    for (auto ir = g1.rbegin(); ir != g1.rend(); ++ir)
+        cout << *ir << " ";
+
+    cout << "\nOutput of crbegin and crend : ";
+    for (auto ir = g1.crbegin(); ir != g1.crend(); ++ir)
+        cout << *ir << " ";
 }
