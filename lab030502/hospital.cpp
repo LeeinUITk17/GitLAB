@@ -67,7 +67,7 @@ void patient::showOff(patient A) {
 	cout << "\n--Patient--\n";
 	cout << "ID: " << A.idPatient << "\n";
 	cout << "Fullname: " << A.fullname << "\n";
-	cout << "About times<\day> : " << A.AboutTime << "\n";
+	cout << "About times<day> : " << A.AboutTime << "\n";
 	cout << "medicin fees: " << A.medicinFee << "\n";
 	cout << "Bill: " << A.bills << "\n";
 	cout << "ID doctor: " << A.idDoctor << "\n";
