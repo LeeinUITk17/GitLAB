@@ -1,0 +1,12 @@
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\bin\Debug\net7.0\HRAdministrationAPI.deps.json
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\bin\Debug\net7.0\HRAdministrationAPI.dll
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\bin\Debug\net7.0\HRAdministrationAPI.pdb
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\HRAdministrationAPI.csproj.AssemblyReference.cache
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\HRAdministrationAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\HRAdministrationAPI.AssemblyInfoInputs.cache
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\HRAdministrationAPI.AssemblyInfo.cs
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\HRAdministrationAPI.csproj.CoreCompileInputs.cache
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\HRAdministrationAPI.dll
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\refint\HRAdministrationAPI.dll
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\HRAdministrationAPI.pdb
+C:\gitStudio\GitLAB\csharpt\SchoolHRAdministration\HRAdministrationAPI\obj\Debug\net7.0\ref\HRAdministrationAPI.dll
