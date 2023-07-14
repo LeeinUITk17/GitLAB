@@ -1,0 +1,5 @@
+C:\gitStudio\gitlab\csharpt\obj\Debug\net7.0\csharpt.csproj.AssemblyReference.cache
+C:\gitStudio\gitlab\csharpt\obj\Debug\net7.0\csharpt.GeneratedMSBuildEditorConfig.editorconfig
+C:\gitStudio\gitlab\csharpt\obj\Debug\net7.0\csharpt.AssemblyInfoInputs.cache
+C:\gitStudio\gitlab\csharpt\obj\Debug\net7.0\csharpt.AssemblyInfo.cs
+C:\gitStudio\gitlab\csharpt\obj\Debug\net7.0\csharpt.csproj.CoreCompileInputs.cache
