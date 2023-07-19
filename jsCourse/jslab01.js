@@ -16,7 +16,12 @@ console.log(strmain);
 //     output: process.stdout
 //   }
 // );
-
+function testArray(person){
+   // const arr=document.getElementById("arraytest").
+     for(let key in person){
+        console.log(key+" : "+ person[key]);
+     }
+}
 
 
 

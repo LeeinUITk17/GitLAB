@@ -1,0 +1,65 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="src/style.css"> -->
+     <script src="/GitLAB/jsCourse/jslab01.js"></script>
+    </head>
+    <body>
+    <h1 id="header"></h1>
+
+    <script src="src/script.js"></script>
+
+    <!-- Input field and button -->
+    <label for="nameInput">enter your name :</label>
+    <input type="text" id="nameInput">
+    <button onclick="sayHello()">Submit</button>
+    
+    <!-- JavaScript code -->
+    <script>
+        function sayHello() {
+        const userInput = document.getElementById("nameInput").value;
+        console.log("hello " + userInput + " !");
+        sayFuck(userInput)
+        }
+        function sayFuck(inputvalue){
+        console.log("yo!, Fuck you "+ inputvalue);
+        }
+    </script>
+    <label for="namearr">enter your name :</label>
+    <input type="text" id="namearr">
+    <label for="agearr">enter your age :</label>
+    <input type="text" id="agearr">
+    <label for="occupationarr">enter your occupation :</label>
+    <input type="text" id="occupationarr">
+
+<script>
+    function testArray(person){
+   // const arr=document.getElementById("arraytest").
+     for(let key in person){
+        console.log(key+" : "+ person[key]);
+     }
+     for(let value of person.name){
+        console.log(value);
+     }
+}
+
+    function objectIndentifier(){
+        const namex=document.getElementById("namearr").value;
+        const agex=document.getElementById("agearr").value;
+        const occupationx=document.getElementById("occupationarr").value;
+
+        const person={
+            name: namex,
+            age: agex,
+            occupation: occupationx
+        };
+        testArray(person);
+
+}
+</script>
+
+    <button onclick="objectIndentifier()" >Submit</button>
+    </body>
+    </html>
