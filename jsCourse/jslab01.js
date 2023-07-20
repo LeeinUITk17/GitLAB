@@ -22,6 +22,38 @@ function testArray(person){
         console.log(key+" : "+ person[key]);
      }
 }
+function createMatrix(rows,columns){
+const matrix=[];
+for(let i=0;i<rows;i++){
+   const row=[];
+    for(let j=0;j<columns;j++){
+        const inputValue=prompt('Enter the value for matrix[${i}][${j}]: ');
+        const numericValue=parseFloat(inputValue);
+        row.push(isNaN(numericValue)?0:numericValue);
+    }
+    matrix.push(row);
+}
+return matrix;
+}
+function printMatrix(matrix){
+   for(let i=0;i<matrix.length;i++){
+      console.log(matrix[i].join('\t'));
+   }
+}
+function sumMatrix(matrix){
+   let sum=0;
+   for(let i=0;i<matrix.length;i++){
+      for(let j=0;j<matrix[i].length;j++){
+         sum+=matrix[i][j];
+      }
+   }
+   return sum;
+}
+const rows=parseInt(prompt('enter the number of rows: '));
+const columns=parseInt(prompt('enter the number of columns: '));
+const matrix =createMatrix(rows,columns);
+console.log('Matrix: ');
+printMatrix(matrix);
 
-
-
+const sum=sumMatrix(matrix);
+console.log('sum of matrix is ${sum}' );

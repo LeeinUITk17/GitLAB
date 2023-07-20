@@ -27,13 +27,22 @@
         console.log("yo!, Fuck you "+ inputvalue);
         }
     </script>
+    <br>
     <label for="namearr">enter your name :</label>
     <input type="text" id="namearr">
+    <br>
     <label for="agearr">enter your age :</label>
     <input type="text" id="agearr">
+    <br>
     <label for="occupationarr">enter your occupation :</label>
     <input type="text" id="occupationarr">
-
+   <br>
+   <label for="rowvalue">enter rows number</label>
+   <input type="text" id="rowvalue">
+   <br>
+   <label for="columnvalue">enter columns number</label>
+   <input type="text" id="columnvalue">
+   <br>
 <script>
     function testArray(person){
    // const arr=document.getElementById("arraytest").
@@ -56,10 +65,21 @@
             occupation: occupationx
         };
         testArray(person);
-
+    function matrixIdentifier(){
+           const rowx=document.getElementById("rowvalue").value;
+           const columnx=document.getElementById("columnvalue").value;
+           const matrix=createMatrix(rowx,columnx);
+           console.log('Matrix: ');
+           printMatrix(matrix);
+           const sum=sumMatrix(matrix);
+           console.log('sum of matrix is ${sum}');
+    }
 }
 </script>
-
+<br>
     <button onclick="objectIndentifier()" >Submit</button>
+    <br>
+    <button onclick="matrixIdentifier()">use Matrix indentifier</button>
+    <br>
     </body>
     </html>
