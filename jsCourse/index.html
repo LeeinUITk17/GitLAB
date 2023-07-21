@@ -81,5 +81,64 @@
     <br>
     <button onclick="matrixIdentifier()">use Matrix indentifier</button>
     <br>
-    </body>
+    <label for="species">enter it's species: </label>
+    <input type="text" id="species">
+    <br>
+    <label for="names">enter it's name: </label>
+    <input type="text" id="names">
+    <br>
+    <label for="breeds">enter it's breed: </label>
+    <input type="text" id="breeds">
+    <script>
+        function AnimalIdentifier(){
+            // const speciesx=document.getElementById("species").value;
+            const namex=document.getElementById("names").value;
+            const breedx=document.getElementById("breeds").value;
+            const golden=new dog(namex,breedx);
+            golden.makeSound();
+            golden.fetch();        
+        }
+    </script>
+    <br>
+    <button onclick="AnimalIdentifier()">use Animal Identifier</button>
+<br>    
+<label for="colorsquare">enter color of square: </label>
+<input type="text" id="colorsquare">;
+<br>
+<label for="sidelengthsquare">enter side length of square: </label>
+<input type="text" id="sidelengthsquare">;
+<br>
+<label for="colorcircle">enter color of circle: </label>
+<input type="text" id="colorcircle">;
+<br>
+<label for="radiuscircle">enter radius of circle: </label>
+<input type="text" id="radiuscircle">;
+<br>
+<script>
+    function shapeIdentifier() {
+      const colorsquarex = document.getElementById("colorsquare").value;
+      const sidelengthsquarex = document.getElementById("sidelengthsquare").value;
+      const colorcirclex = document.getElementById("colorcircle").value;
+      const radiuscirclex = document.getElementById("radiuscircle").value;
+      
+      const xSquare = new Square(colorsquarex, sidelengthsquarex);
+      const xCircle = new Circle(colorcirclex, radiuscirclex);
+      xSquare.draw();
+      xCircle.draw();
+    }
+</script>
+<br>
+<button onclick="shapeIdentifier()">Identify Shapes</button>
+<script>
+  function testOperator() {
+      const v1 = new Vector2D(3, 4);
+      const v2 = new Vector2D(7, 8);
+      const v3 = v1.add(v2);
+      console.log(v3.toString());
+    }
+</script>
+<br>
+<button onclick="testOperator()">test operator</button>
+<br>
+</body>
     </html>
