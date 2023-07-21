@@ -57,5 +57,3 @@ printMatrix(matrix);
 
 const sum=sumMatrix(matrix);
 console.log('sum of matrix is ${sum}' );
-
-
