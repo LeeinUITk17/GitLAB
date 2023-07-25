@@ -135,3 +135,29 @@ const now = new Date();
 const expirationDate = new Date(now.getTime() + expirationTime * 1000); // Multiply by 1000 to convert to milliseconds
 
 document.cookie = "username=John Doe; expires=" + expirationDate.toUTCString();
+
+const mainheading = document.getElementById('mainHeading');
+        const paragraph = document.getElementById('paragraph');
+        const changetextbutton = document.getElementById('changeTextButton');
+        const list = document.getElementById('list');
+        
+        changetextbutton.addEventListener('click', function() {
+            mainheading.innerHTML = 'Hello, this is the fucking DOM';
+            paragraph.textContent = 'The text has been changed!';
+        });
+
+        const newItem = document.createElement('li');
+        newItem.textContent = 'New Item';
+        list.appendChild(newItem);
+
+        const firstItem = list.firstElementChild;
+        list.removeChild(firstItem);
+
+        paragraph.style.color = 'blue';
+        paragraph.style.fontWeight = 'bold';
+
+const button=document.getElementById('mybutton');
+function handleclick(){
+       button.innerHTML==='button clicked';
+}
+button.addEventListener('click',handleclick);
