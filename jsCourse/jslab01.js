@@ -156,6 +156,7 @@ const mainheading = document.getElementById('mainHeading');
         paragraph.style.color = 'blue';
         paragraph.style.fontWeight = 'bold';
 
+<<<<<<< HEAD
         const button = document.getElementById('mybutton');
 
         function handleclick() {
@@ -163,3 +164,20 @@ const mainheading = document.getElementById('mainHeading');
         }
         
         button.addEventListener('click', handleclick);
+=======
+function handleclick(){
+    document.getElementById("mybutton").innerHTML="Hello fucking world";
+}
+function changelist(){
+  const changecontent=document.getElementById('changecontent').value;
+  const index=parseInt(document.getElementById('indexcontent')).value;
+  const listitems=document.querySelectorAll("#list li");
+  if(index>=1&&index<=listitems.length){
+    listitems[index-1].textContent=changecontent;
+  }
+  else{
+    alert("Invalid index, please enter a valid index between 1 and "+ listitems.length);
+  }
+
+}
+>>>>>>> b6460911a0f9b55f9e56bd267072061648ba64f0
