@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Shooting Game</title>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let playerX = 400;
+        let playerY = 550;
+
+        function drawPlayer() {
+            ctx.beginPath();
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(playerX, playerY, 50, 50);
+            ctx.closePath();
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' && playerX > 0) {
+                playerX -= 10;
+            } else if (event.key === 'ArrowRight' && playerX < canvas.width - 50) {
+                playerX += 10;
+            }
+        });
+
+        gameLoop();
+    </script>
+</body>
+</html>

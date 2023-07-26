@@ -156,8 +156,10 @@ const mainheading = document.getElementById('mainHeading');
         paragraph.style.color = 'blue';
         paragraph.style.fontWeight = 'bold';
 
-const button=document.getElementById('mybutton');
-function handleclick(){
-       button.innerHTML==='button clicked';
-}
-button.addEventListener('click',handleclick);
+        const button = document.getElementById('mybutton');
+
+        function handleclick() {
+            button.innerHTML = 'Button Clicked';
+        }
+        
+        button.addEventListener('click', handleclick);
