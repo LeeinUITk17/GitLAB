@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="src/style.css"> -->
      <script src="/GitLAB/jsCourse/jslab01.js"></script>
+     <script src="jquery-3.7.0.min.js"></script>
+     <!-- <link rel="stylesheet" href="css/bootstrap-grid.css">
+     <link rel="stylesheet" href="css/bootstrap-grid.css.map">
+     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+     <link rel="stylesheet" href="css/bootstrap-grid.min.css.map">
+     <link rel="stylesheet" href="css/bootstrap-grid.rtl.css">
+     <link rel="stylesheet" href="css/bootstrap-grid.rtl.min.css">
+     <link rel="stylesheet" href="css/bootstrap-grid.rtl.min.css.map">
+     <link rel="stylesheet" href="css/bootstrap-reboot.css">
+     <link rel="stylesheet" href="css/bootstrap-reboot.css.map">
+     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+     <link rel="stylesheet" href="css/bootstrap-reboot.min.css.map">
+     <script src="js/bootstrap.bundle.js"></script>
+     <script src="js/bootstrap.bundle.js.map"></script>
+     <script src="js/bootstrap.bundle.min.js"></script>
+     <script src="js/bootstrap.bundle.min.js.map"></script>
+     <script src="js/bootstrap.esm.js"></script>
+     <script src="js/bootstrap.esm.js.map"></script>
+     <script src="js/bootstrap.esm.min.js"></script>
+     <script src="js/bootstrap.esm.min.js.map"></script>
+     <script src="js/bootstrap.js"></script>
+     <script src="js/bootstrap.js.map"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/bootstrap.min.js.map"></script> -->
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
     </head>
     <body>
     <h1 id="header"></h1>
@@ -150,6 +180,33 @@
     <li>item 3</li>
 </ul>
 <br>
-<button id="mybutton">click me!</button>
+<button id="mybutton" onclick="handleclick()">click me!</button>
+
+<br>
+
+<div class="container">
+    <h1 id="main-heading">favourite movie franchise</h1>
+    <ul id="list">
+        <li class="list-items">the matrix</li>
+        <li class="list-items">star wars</li>
+        <li class="list-items">harry potter</li>
+        <li class="list-items">lord of the rings</li>
+    <li class="list-items">marvel</li>
+    </ul>
+</div>
+  <script>
+    const title =document.getElementById('main-heading');
+    console.log(title);
+    const listitem=document.getElementsByClassName('list-items');
+    console.log(listitem);
+  </script>
+  <br>
+   <label for="changecontent">change content list items in here.</label>
+   <input type="text" id="changecontent">
+   <br>
+   <label for="indexcontent">enter index content wanna change</label>
+   <input type="text" id="indexcontent">   
+   <br>
+   <button onclick="changelist()">Change</button>
 </body>
     </html>

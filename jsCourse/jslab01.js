@@ -156,8 +156,18 @@ const mainheading = document.getElementById('mainHeading');
         paragraph.style.color = 'blue';
         paragraph.style.fontWeight = 'bold';
 
-const button=document.getElementById('mybutton');
 function handleclick(){
-       button.innerHTML==='button clicked';
+    document.getElementById("mybutton").innerHTML="Hello fucking world";
 }
-button.addEventListener('click',handleclick);
+function changelist(){
+  const changecontent=document.getElementById('changecontent').value;
+  const index=parseInt(document.getElementById('indexcontent')).value;
+  const listitems=document.querySelectorAll("#list li");
+  if(index>=1&&index<=listitems.length){
+    listitems[index-1].textContent=changecontent;
+  }
+  else{
+    alert("Invalid index, please enter a valid index between 1 and "+ listitems.length);
+  }
+
+}
